@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "nombre": "Manzana",
+    "categoria": "frutas",
+    "precio": 100,
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "nombre": "Banana",
+    "categoria": "frutas",
+    "precio": 90,
+    "stock": 100
+  },
+  {
+    "id": 3,
+    "nombre": "Kiwi",
+    "categoria": "frutas",
+    "precio": 120,
+    "stock": 100
+  },
+  {
+    "id": 4,
+    "nombre": "Uva",
+    "categoria": "frutas",
+    "precio": 150,
+    "stock": 100
+  },
+  {
+    "id": 5,
+    "nombre": "Lechuga",
+    "categoria": "verduras",
+    "precio": 80,
+    "stock": 100
+  },
+  {
+    "id": 6,
+    "nombre": "Zanahoria",
+    "categoria": "verduras",
+    "precio": 70,
+    "stock": 100
+  },
+  {
+    "id": 7,
+    "nombre": "Papa",
+    "categoria": "verduras",
+    "precio": 60,
+    "stock": 100
+  },
+  {
+    "id": 8,
+    "nombre": "Tomate",
+    "categoria": "verduras",
+    "precio": 100,
+    "stock": 100
+  },
+  {
+    "id": 9,
+    "nombre": "Leche",
+    "categoria": "lacteos",
+    "precio": 120,
+    "stock": 100
+  },
+  {
+    "id": 10,
+    "nombre": "Queso",
+    "categoria": "lacteos",
+    "precio": 200,
+    "stock": 100
+  },
+  {
+    "id": 11,
+    "nombre": "Manteca",
+    "categoria": "lacteos",
+    "precio": 90,
+    "stock": 100
+  },
+  {
+    "id": 12,
+    "nombre": "Yogur",
+    "categoria": "lacteos",
+    "precio": 80,
+    "stock": 100
+  },
+  {
+    "id": 13,
+    "nombre": "Vacio",
+    "categoria": "carnes",
+    "precio": 125,
+    "stock": 100
+  },
+  {
+    "id": 14,
+    "nombre": "Matambre",
+    "categoria": "carnes",
+    "precio": 180,
+    "stock": 100
+  },
+  {
+    "id": 15,
+    "nombre": "Nalga",
+    "categoria": "carnes",
+    "precio": 110,
+    "stock": 100
+  },
+  {
+    "id": 16,
+    "nombre": "Picada",
+    "categoria": "carnes",
+    "precio": 95,
+    "stock": 100
+  },
+  {
+    "id": 17,
+    "nombre": "Pan",
+    "categoria": "panaderia",
+    "precio": 150,
+    "stock": 100
+  },
+  {
+    "id": 18,
+    "nombre": "Chipacito",
+    "categoria": "panaderia",
+    "precio": 180,
+    "stock": 100
+  },
+  {
+    "id": 19,
+    "nombre": "Torta",
+    "categoria": "panaderia",
+    "precio": 280,
+    "stock": 100
+  },
+  {
+    "id": 20,
+    "nombre": "Sandwiches",
+    "categoria": "panaderia",
+    "precio": 380,
+    "stock": 100
+  }
+]

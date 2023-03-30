@@ -1,0 +1,62 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+body {
+  background-color: #7b0e0e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.btn {
+  color: #ffffff;
+  background-color: #0b2b5b;
+  border-color: #ffffff;
+}
+.productos {
+  background-color: #ffffff;
+  color: #000000;
+}
+.icono-agregar-carrito {
+  color: #ffffff;
+  background-color: #0b2b5b;
+}
+.carrito {
+  background-color: #ffffff;
+  color: #000000;
+}
+.categorias {
+  width: 30%;
+  float: left;
+}
+
+.categorias ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categorias .categoria {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.categorias .categoria:hover {
+  background-color: #efefef;
+}
+
+.categorias .seleccionada {
+  background-color: #cfcfcf;
+}
+
+.productos {
+  width: 70%;
+  float: right;
+}

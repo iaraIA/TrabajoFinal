@@ -1,0 +1,5 @@
+.categorias {
+  columns: 3;
+  column-width: 150px;
+  column-gap: 20px;
+}
