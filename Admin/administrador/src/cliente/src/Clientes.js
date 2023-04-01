@@ -3,6 +3,8 @@ import axios from "axios";
 import Productos from "./components/Productos.js";
 import Carrito from "./components/Carrito.js";
 
+
+
 function Clientes() {
   const [productos, setProductos] = useState([]);
   const [carrito, setCarrito] = useState([]);

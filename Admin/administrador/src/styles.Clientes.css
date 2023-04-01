@@ -26,9 +26,16 @@ button,
   color: #ffffff;
   background-color: #0b2b5b;
 }
+
+
 .carrito {
-  background-color: #ffffff;
+  background-color: #e28113;
   color: #000000;
+  position: fixed;
+  top: 90px;
+  right: 8px;
+  padding: 10px;
+  border-radius: 5px;
 }
 .categorias {
   width: 30%;
