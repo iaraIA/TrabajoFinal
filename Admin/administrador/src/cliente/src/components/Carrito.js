@@ -1,43 +1,52 @@
 import React from "react";
 
 const Carrito = ({ carrito, setCarrito, total, setTotal }) => {
-  const eliminarProducto = (id, cantidad) => {
+  const eliminarProducto = (id, cantidad, precio) => {
     const nuevoCarrito = carrito.filter((producto) => producto.id !== id);
     setCarrito(nuevoCarrito);
-    setTotal((prevTotal) => prevTotal - cantidad);
+    setTotal((prevTotal) => prevTotal - cantidad * precio);
   };
-
+  
+  
+ 
   const vaciarCarrito = () => {
     setCarrito([]);
     setTotal(0);
   };
 
   const agregarProducto = (producto) => {
-    const productoExistente = carrito.find((p) => p.id === producto.id);
-    if (productoExistente) {
-      const nuevoCarrito = carrito.map((p) =>
-        p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p
-      );
-      setCarrito(nuevoCarrito);
-      setTotal((prevTotal) => prevTotal + producto.precio);
-    } else {
-      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
-      setTotal((prevTotal) => prevTotal + producto.precio);
-    }
-  };
+  const productoExistente = carrito.find((p) => p.id === producto.id);
+  if (productoExistente) {
+    const nuevoCarrito = carrito.map((p) =>
+      p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p
+    );
+    setCarrito(nuevoCarrito);
+  } else {
+    setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+  }
+  setTotal(carrito.reduce((acc, p) => acc + p.cantidad * p.precio, 0));
+};
 
-  const restarProducto = (producto) => {
-    const productoExistente = carrito.find((p) => p.id === producto.id);
-    if (productoExistente.cantidad === 1) {
-      eliminarProducto(producto.id, productoExistente.precio);
-    } else {
-      const nuevoCarrito = carrito.map((p) =>
-        p.id === producto.id ? { ...p, cantidad: p.cantidad - 1 } : p
-      );
-      setCarrito(nuevoCarrito);
-      setTotal((prevTotal) => prevTotal - productoExistente.precio);
-    }
-  };
+  
+
+const restarProducto = (producto) => {
+  const productoExistente = carrito.find((p) => p.id === producto.id);
+  if (productoExistente.cantidad === 1) {
+    eliminarProducto(producto.id, productoExistente.cantidad, producto.precio);
+  } else {
+    const nuevoCarrito = carrito.reduce((acc, p) => {
+      if (p.id === producto.id) {
+        acc.push({ ...p, cantidad: p.cantidad - 1 });
+      } else {
+        acc.push(p);
+      }
+      return acc;
+    }, []);
+    setCarrito(nuevoCarrito);
+    setTotal((prevTotal) => prevTotal - productoExistente.precio);
+  }
+};
+
 
   return (
     <div className="carrito">
@@ -70,7 +79,7 @@ const Carrito = ({ carrito, setCarrito, total, setTotal }) => {
                 <td>
                   <button
                     onClick={() =>
-                      eliminarProducto(producto.id, producto.cantidad)
+                      eliminarProducto(producto.id, producto.cantidad, producto.precio)
                     }
                   >
                     Eliminar
@@ -82,7 +91,7 @@ const Carrito = ({ carrito, setCarrito, total, setTotal }) => {
           <tfoot>
             <tr>
               <td colSpan="3">Total:</td>
-              <td>${total.toFixed(2)}</td>
+              <td>${typeof total === 'number' ? total.toFixed(2) : '0.00'}</td>
               <td>
                 <button onClick={() => vaciarCarrito()}>Vaciar carrito</button>
               </td>

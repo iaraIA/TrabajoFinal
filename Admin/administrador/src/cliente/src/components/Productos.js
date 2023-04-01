@@ -1,9 +1,18 @@
-import React, { useState } from "react";
-import productos from "../productos.json";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Productos({ agregarAlCarrito }) {
   const [categoria, setCategoria] = useState("");
   const [orden, setOrden] = useState("asc");
+  const [productos, setProductos] = useState([]);
+  
+  useEffect(() => {
+    axios.get("http://localhost:3001/productos").then((response) => {
+      setProductos(response.data);
+    });
+  }, []);
+
+
 
   let productosFiltrados = [...productos];
 

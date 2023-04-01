@@ -3,7 +3,17 @@ const app =  express();
 const mysql = require("mysql2");
 const cors = require("cors");
 
-app.use(cors());
+
+
+const port = 3001;
+
+
+
+
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+  }));
 app.use(express.json());
 
 const db = mysql.createConnection({
@@ -31,7 +41,7 @@ app.post("/create",(req,res)=>{
     );
 });
 
-app.get("/productos",(req,res)=>{
+app.get("/Productos",(req,res)=>{
     db.query("SELECT * FROM productos",
     (err,result)=>{
         if(err){
@@ -43,6 +53,8 @@ app.get("/productos",(req,res)=>{
     );
 });
 
+
+  
 
 app.listen(3001,()=>{
     console.log("Running on port 3001");

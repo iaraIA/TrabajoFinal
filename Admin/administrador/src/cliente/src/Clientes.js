@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import "/CSS/styles.css";
-import Productos from "./components/Productos";
-import Carrito from "./components/Carrito";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Productos from "./components/Productos.js";
+import Carrito from "./components/Carrito.js";
 
-function App() {
-  const [productos, setProductos] = useState([
-    { id: 1, nombre: "Producto 1", precio: 100 },
-    { id: 2, nombre: "Producto 2", precio: 200 },
-    { id: 3, nombre: "Producto 3", precio: 300 }
-  ]);
-
+function Clientes() {
+  const [productos, setProductos] = useState([]);
   const [carrito, setCarrito] = useState([]);
   const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    async function obtenerProductos() {
+      const response = await axios.get("http://localhost:3001/productos");
+      setProductos(response.data);
+    }
+    obtenerProductos();
+  }, []);
 
   const agregarAlCarrito = (producto) => {
     const index = carrito.findIndex((p) => p.id === producto.id);
@@ -41,16 +44,16 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="Clientes">
       <header>
-        <h1>Tienda Online</h1>
+        <h1>Iara Market Place</h1>
       </header>
       <main>
         <Productos productos={productos} agregarAlCarrito={agregarAlCarrito} />
         <Carrito
           carrito={carrito}
           setCarrito={setCarrito}
-          total={total}
+          total={carrito.length > 0 ? carrito.reduce((acc, curr) => acc + curr.precio * curr.cantidad, 0) : 0}
           setTotal={setTotal}
           eliminarDelCarrito={eliminarDelCarrito}
         />
@@ -59,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default Clientes;
